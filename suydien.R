@@ -119,11 +119,11 @@ TukeyHSD(anova_memory_speed)
 
 # Mô hình 1
 M1 <- lm(Pixel_Rate ~ Memory_Speed + Memory_Bus + Resolution_WxH + Manufacturer + Memory_Type + Process + Texture_Rate, 
-         data = GPU_clean)
+         data = GPU_new)
 summary(M1)
 # Mô hình 2: Loại bỏ các biến (p-value > 0.05)
 M2 <- lm(Pixel_Rate ~ Process + Resolution_WxH + Texture_Rate, 
-         data = GPU_clean)
+         data = GPU_new)
 summary(M2)
 # So sánh hai mô hình M1 và M2
 anova(M1, M2)
@@ -131,11 +131,11 @@ anova(M1, M2)
 par(mfrow = c(2, 2)) 
 
 # Plot 1: Residuals vs Fitted
-plot(M1, which = 1)
+#plot(M1, which = 1)
 # Plot 2: Normal Q-Q
-plot(M1, which = 2)
+#plot(M1, which = 2)
 # Plot 3: Scale-Location
-plot(M1, which = 3)
+#plot(M1, which = 3)
 # Plot 4: Residuals vs Leverage
-plot(M1, which = 5)
+#plot(M1, which = 5)
 plot(M1)
